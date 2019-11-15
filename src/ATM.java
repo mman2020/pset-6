@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 public class ATM {
     
-    private Scanner in;
+	public static final int FIRST_NAME_WIDTH = 20;
+	public static final int LAST_NAME_WIDTH = 20;	
+	private Scanner in;
     private BankAccount activeAccount;
     private Bank bank;
     
@@ -28,11 +30,11 @@ public class ATM {
 		}
     }
     
-    /*
-     * Application execution begins here.
-     */
-    
-    public static void main(String[] args) {
-        ATM atm = new ATM();
-    }
+	/*
+	 * Application execution begins here.
+	 */
+	
+	public static void main(String[] args) {
+	    ATM atm = new ATM();
+	}
 }

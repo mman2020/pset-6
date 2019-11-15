@@ -17,7 +17,11 @@ public class BankAccount {
      * @return a fixed-width string in line with the data file specifications.
      */
     
-    private String formatBalance() {
+    public BankAccount(int pin2, long generateAccountNo, User user) {
+		// TODO Auto-generated constructor stub
+	}
+
+	private String formatBalance() {
         return String.format("%1$15s", balance);
     }
     
