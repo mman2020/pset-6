@@ -17,8 +17,8 @@ public class ATM {
 	public static final int INSUFFICIENT = 1;
 	public static final int SUCCESS = 2; 
  
-	public static final int FIRST_NAME_WIDTH = 20;
-	public static final int LAST_NAME_WIDTH = 20;
+	public static final int FIRST_NAME_WIDTH = 40;
+	public static final int LAST_NAME_WIDTH = 40;
    
     ////////////////////////////////////////////////////////////////////////////
     //                                                                        //
