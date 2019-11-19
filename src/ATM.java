@@ -109,7 +109,59 @@ public class ATM {
             return in.nextInt();
         }
         
-
+        public void showBalance() {
+            System.out.println("\nCurrent balance: " + activeAccount.getBalance());
+        }
+        
+        public void deposit() {
+            System.out.print("\nEnter amount: ");
+            double amount = in.nextDouble();
+                
+            int status = activeAccount.deposit(amount);
+            if (status == ATM.INVALID) {
+                System.out.println("\nDeposit rejected. Amount must be greater than $0.00.\n");
+            } else if (status == ATM.SUCCESS) {
+                System.out.println("\nDeposit accepted.\n");
+            }
+        }
+            
+        public void withdraw() {
+            System.out.print("\nEnter amount: ");
+//            	try {
+//            		amount = in.nextDouble();
+//            	}c
+            	double amount = in.nextDouble();
+                int status = activeAccount.withdraw(amount);
+                if (status == ATM.INVALID) {
+                    System.out.println("\nWithdrawal rejected. Amount must be greater than $0.00.\n");
+                } else if (status == ATM.INSUFFICIENT) {
+                    System.out.println("\nWithdrawal rejected. Insufficient funds.\n");
+                } else if (status == ATM.SUCCESS) {
+                    System.out.println("\nWithdrawal accepted.\n");
+                }
+            System.out.println("\nWithdrawal rejected. Enter vaild amount.\n");
+         }
+        
+        public void transfer() {
+            System.out.print("\nEnter account: ");
+            long secondedAccountNumber = in.nextLong();
+            System.out.print("\nEnter amount: ");
+            double amount = in.nextDouble();
+            BankAccount transferAccount = bank.getAccount(secondedAccountNumber);
+            activeAccount.withdraw(amount);
+            transferAccount.deposit(amount);
+        }
+            
+        public void shutdown() {
+            if (in != null) {
+                in.close();
+            }
+            
+            System.out.println("\nGoodbye!");
+            System.exit(0);
+        }
+        
+    
     /*
      * Application execution begins here.
      */
