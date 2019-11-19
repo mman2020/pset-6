@@ -1,3 +1,5 @@
+import java.text.NumberFormat;
+
 public class BankAccount {
         
 	private static long prevAccountNo = 100000000L;
@@ -71,14 +73,6 @@ public class BankAccount {
     }
 	private String formatBalance() {
         return String.format("%1$15s", balance);
-    }
-    
-    public void deposit(double amount) {
-        balance = balance + amount;
-    }
-    
-    public void withdraw(double amount) {
-        balance = balance - amount;
     }
 	
     /*
