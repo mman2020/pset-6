@@ -61,7 +61,7 @@ public class ATM {
                 System.out.print("Account No.: ");
                 if(in.hasNextLong()) {
                 	accountNo = in.nextLong();
-                } else if (accountNo.equals("+") {
+                } else if () {
                 	
                 } else {
                 	accountNo = 0;
