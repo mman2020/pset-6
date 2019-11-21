@@ -18,7 +18,7 @@ public class ATM {
 	public static final int SUCCESS = 2; 
  
 	public static final int FIRST_NAME_WIDTH = 40;
-	public static final int LAST_NAME_WIDTH = 40;
+	public static final int LAST_NAME_WIDTH = 20;
    
     ////////////////////////////////////////////////////////////////////////////
     //                                                                        //
@@ -34,7 +34,7 @@ public class ATM {
         public ATM() {
             in = new Scanner(System.in);
             
-            activeAccount = new BankAccount(1234, 123456789, 0, new User("Ryan", "Wilson"));
+            activeAccount = new BankAccount(1234, 123456789, new User("Ryan", "Wilson"));
             
             try {
     			this.bank = new Bank();

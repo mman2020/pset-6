@@ -1,33 +1,21 @@
 import java.text.NumberFormat;
 
 public class BankAccount {
-        
-	private static long prevAccountNo = 100000000L;
-	
+       
     private int pin;
     private long accountNo;
     private double balance;
     private User accountHolder;
     
-    ////////////////////////////////////////////////////////////////////////////
-    //                                                                        //
-    // Refer to the Simple ATM tutorial to fill in the details of this class. //
-    //                                                                        //
-    ////////////////////////////////////////////////////////////////////////////
-    
-    /*
-     * Formats the account balance in preparation to be written to the data file.
-     * 
-     * @return a fixed-width string in line with the data file specifications.
-     */
-    
-    public BankAccount(int pin2, long generateAccountNo, User user) {
-		// TODO Auto-generated constructor stub
-	}
-    
-    public BankAccount(int pin, User accountHolder) {
+    public BankAccount(int pin, long accountNo, double balance, User accountHolder) {
         this.pin = pin;
-        this.accountNo = ++BankAccount.prevAccountNo;
+        this.accountNo = accountNo;
+        this.balance = balance;
+        this.accountHolder = accountHolder;
+    }
+    public BankAccount(int pin, long accountNo, User accountHolder) {
+        this.pin = pin;
+        this.accountNo = accountNo;
         this.balance = 0.0;
         this.accountHolder = accountHolder;
     }
@@ -46,10 +34,16 @@ public class BankAccount {
         return currency.format(balance);
     }
     
+    public User getAccountHolder() {
+        return accountHolder;
+    }
+    
     public int deposit(double amount) {
         if (amount <= 0) {
             return ATM.INVALID;    
-        } else {
+        }else if((amount + balance) >= 999999999999.99){
+        	return ATM.OVERFILL;
+        }else {
             balance = balance + amount;
         }
             
@@ -68,13 +62,22 @@ public class BankAccount {
         return ATM.SUCCESS;
     }
     
-    public User getAccountHolder() {
-        return accountHolder;
-    }
-	private String formatBalance() {
+    ////////////////////////////////////////////////////////////////////////////
+    //                                                                        //
+    // Refer to the Simple ATM tutorial to fill in the details of this class. //
+    //                                                                        //
+    ////////////////////////////////////////////////////////////////////////////
+    
+    /*
+     * Formats the account balance in preparation to be written to the data file.
+     * 
+     * @return a fixed-width string in line with the data file specifications.
+     */
+    
+    private String formatBalance() {
         return String.format("%1$15s", balance);
     }
-	
+    
     /*
      * Converts this BankAccount object to a string of text in preparation to
      * be written to the data file.
@@ -89,4 +92,5 @@ public class BankAccount {
             accountHolder.serialize() +
             formatBalance();
     }
+    
 }
