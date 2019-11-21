@@ -126,12 +126,9 @@ public class ATM {
                 System.out.println("\nDeposit accepted.\n");
             }
         }
-            
+        
         public void withdraw() {
             System.out.print("\nEnter amount: ");
-//            	try {
-//            		amount = in.nextDouble();
-//            	}c
             	double amount = in.nextDouble();
                 int status = activeAccount.withdraw(amount);
                 if (status == ATM.INVALID) {
@@ -162,11 +159,7 @@ public class ATM {
             System.out.println("\nGoodbye!");
             System.exit(0);
         }
-        
-    
-    /*
-     * Application execution begins here.
-     */
+
     
     public static void main(String[] args) {
         ATM atm = new ATM();
