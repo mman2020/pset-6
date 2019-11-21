@@ -43,6 +43,14 @@ public class ATM {
     			// cleanup any resources (i.e., the Scanner) and exit
     		}
         }
+        public bank newAccount() {
+        	System.out.print();
+        }
+        
+        public static void main(String[] args) {
+            ATM atm = new ATM();
+            atm.startup();
+        }
         
         public void startup() {
         	long accountNo;
@@ -53,7 +61,9 @@ public class ATM {
                 System.out.print("Account No.: ");
                 if(in.hasNextLong()) {
                 	accountNo = in.nextLong();
-                }else {
+                } else if (accountNo.equals("+") {
+                	
+                } else {
                 	accountNo = 0;
                 	in.nextLine();
                 }
@@ -61,7 +71,7 @@ public class ATM {
                 System.out.print("PIN        : ");
                 if(in.hasNextInt()) {
                 	pin = in.nextInt();
-                }else {
+                } else {
                 	pin = 0;
                 	in.nextLine();
                 }
@@ -159,10 +169,4 @@ public class ATM {
             System.out.println("\nGoodbye!");
             System.exit(0);
         }
-
-    
-    public static void main(String[] args) {
-        ATM atm = new ATM();
-        atm.startup();
-    }
 }
