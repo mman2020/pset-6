@@ -43,9 +43,6 @@ public class ATM {
     			// cleanup any resources (i.e., the Scanner) and exit
     		}
         }
-        public bank newAccount() {
-        	System.out.print();
-        }
         
         public static void main(String[] args) {
             ATM atm = new ATM();
