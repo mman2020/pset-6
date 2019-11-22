@@ -121,7 +121,6 @@ public class ATM {
         	int pin = in.nextInt();
         	in.nextLine();
         	newUser = new User(firstName, lastName);
-        	
         	bank.createAccount(pin, newUser);
         	bank.save();
         	return;
